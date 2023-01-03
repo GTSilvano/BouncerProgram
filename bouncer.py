@@ -1,13 +1,8 @@
 def main():
     print("Welcome to our club.")
 
-    age_restrictions = {
-        "USA": 21,
-        "Mali": 15,
-        "Moldova": 18,
-        "Germany": 16,
-        "Iceland": 20
-    }
+    with open("age_restrictions.py") as f:
+        exec(f.read())
 
     age = int(input("What's your age? "))
 
@@ -15,8 +10,8 @@ def main():
         print("Come on in.")
     else:
         country = str(input("Where are you from? "))
-        if country in age_restrictions:
-            if age >= age_restrictions[country]:
+        if country in globals()["age_restrictions"]:
+            if age >= globals()["age_restrictions"][country]:
                 print("Come on in.")
             else:
                 print("Get out.")
@@ -27,5 +22,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    
-    
