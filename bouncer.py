@@ -6,6 +6,7 @@ with open('someData.txt', 'r') as f:
     contents = contents[contents.index('{'):]
     age_restrictions = ast.literal_eval(contents)
         
+
 def main():
     print("Welcome to our club.")
 
